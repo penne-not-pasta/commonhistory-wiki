@@ -147,3 +147,120 @@ footer {
 }
 
 .social-links a:hover { color: white; }
+
+/* Article Layout */
+.article-container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs a { color: var(--red); text-decoration: none; }
+
+.article-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* Typography */
+.article-title {
+    font-size: 2.5rem;
+    border-bottom: 3px double var(--gold);
+    color: var(--dark);
+    margin-top: 0;
+}
+
+.section-header {
+    border-bottom: 1px solid var(--gold);
+    color: var(--red);
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 4rem;
+    line-height: 1;
+    font-weight: bold;
+    color: var(--red);
+    margin-right: 10px;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Quote Box */
+.manuscript-quote {
+    background: #fff9e6;
+    border-left: 5px solid var(--gold);
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.manuscript-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--green);
+}
+
+/* Sidebar / Infobox */
+.wiki-sidebar {
+    background: #fdfdfd;
+}
+
+.infobox {
+    border: 1px solid var(--gold);
+    padding: 10px;
+    background: #fafafa;
+}
+
+.infobox-header {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.infobox-img {
+    text-align: center;
+    padding: 15px;
+    background: #eee;
+    margin: 10px 0;
+    font-size: 0.8rem;
+}
+
+.infobox-table {
+    width: 100%;
+    font-size: 0.9rem;
+    border-collapse: collapse;
+}
+
+.infobox-table th {
+    text-align: left;
+    background: #f0f0f0;
+    padding: 5px;
+    width: 40%;
+}
+
+.infobox-table td {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-grid { grid-template-columns: 1fr; }
+    .wiki-sidebar { order: -1; } /* Infobox appears at top on mobile */
+}
