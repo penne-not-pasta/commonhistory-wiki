@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common History Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="lang-bar">
+            <div class="lang-links">
+                <a href="https://nl.commonhistory.wiki">Dutch</a>
+                <a href="https://us.commonhistory.wiki">English</a>
+                <a href="https://chn.commonhistory.wiki">Chinese</a>
+                <a href="https://fr.commonhistory.wiki">French</a>
+                <a href="https://ar.commonhistory.wiki">Arabic</a>
+                <a href="https://br.commonhistory.wiki">Portuguese</a>
+                <a href="https://es.commonhistory.wiki">Spanish</a>
+            </div>
+        </nav>
+
+        <nav class="main-nav">
+            <div class="nav-col nav-brand">
+                <h1>Common<span>History</span></h1>
+            </div>
+            
+            <div class="nav-col nav-dropdown">
+                <button class="dropbtn">Categories <i class="bi bi-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Religion</a>
+                    <a href="#">Art</a>
+                    <a href="#">Medieval</a>
+                    <a href="#">Music</a>
+                </div>
+            </div>
+
+            <div class="nav-col nav-search">
+                <input type="text" id="wikiSearch" placeholder="Type 1 word..." onkeyup="executeSearch()">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search-results-container" class="hidden">
+            <h2>Search Results</h2>
+            <div id="results-list"></div>
+        </section>
+
+        <section class="hero-content">
+            <h2>Welcome, Traveler</h2>
+            <p>Explore the annals of time, from the sacred echoes of ancient music to the iron-clad history of the medieval world.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About</h3>
+                <p>Preserving the stories of the past for the digital ages of the future.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Religion</a></li>
+                    <li><a href="#">Medieval</a></li>
+                    <li><a href="#">Art</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow & Support</h3>
+                <div class="social-links">
+                    <a href="https://twitter.com/penne_not_pasta"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://youtube.com/@pennenotpasta"><i class="bi bi-youtube"></i></a>
+                    <a href="https://cash.app/$pennenotpasta"><i class="bi bi-cash-stack"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mock Article Data
+        const articles = [
+            { title: "Gothic Architecture", cat: "Art", link: "#" },
+            { title: "Gregorian Chants", cat: "Music", link: "#" },
+            { title: "The Crusades", cat: "Medieval", link: "#" },
+            { title: "Renaissance Painting", cat: "Art", link: "#" },
+            { title: "Monastic Life", cat: "Religion", link: "#" }
+        ];
+
+        function executeSearch() {
+            const input = document.getElementById('wikiSearch').value.toLowerCase();
+            const container = document.getElementById('search-results-container');
+            const list = document.getElementById('results-list');
+            
+            if (input.length > 0) {
+                container.classList.remove('hidden');
+                const filtered = articles.filter(art => 
+                    art.title.toLowerCase().includes(input)
+                );
+                
+                list.innerHTML = filtered.length > 0 
+                    ? filtered.map(art => `<div class="result-item"><a href="${art.link}">${art.title}</a> <span>(${art.cat})</span></div>`).join('')
+                    : `<p>No scrolls found for "${input}"</p>`;
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
