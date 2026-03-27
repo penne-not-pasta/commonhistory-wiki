@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
 
     <header>
@@ -40,7 +42,19 @@
 
         <section class="hero-content">
             <h2>Welcome, Traveler</h2>
-            <p>Explore the annals of time, from the sacred echoes of ancient music to the iron-clad history of the medieval world.</p>
+            <p>Explore the annals of time, from the sacred echoes of ancient music to the iron-clad history of the
+                medieval world.</p>
+        </section>
+        <section class="featured-section">
+            <div class="featured-header">
+                <i class="bi bi-feather"></i>
+                <h2>Archives: Recently Unrolled</h2>
+                <i class="bi bi-feather" style="transform: scaleX(-1);"></i>
+            </div>
+
+            <div id="featured-grid-container" class="featured-grid">
+                
+            </div>
         </section>
     </main>
 
@@ -50,14 +64,7 @@
                 <h3>About</h3>
                 <p>Preserving the stories of the past for the digital ages of the future.</p>
             </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Religion</a></li>
-                    <li><a href="#">Medieval</a></li>
-                    <li><a href="#">Art</a></li>
-                </ul>
-            </div>
+            
             <div class="footer-col">
                 <h3>Follow & Support</h3>
                 <div class="social-links">
@@ -68,7 +75,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="featured.js"></script>
     <script>
         // Mock Article Data
         const articles = [
@@ -79,14 +86,14 @@
             const input = document.getElementById('wikiSearch').value.toLowerCase();
             const container = document.getElementById('search-results-container');
             const list = document.getElementById('results-list');
-            
+
             if (input.length > 0) {
                 container.classList.remove('hidden');
-                const filtered = articles.filter(art => 
+                const filtered = articles.filter(art =>
                     art.title.toLowerCase().includes(input)
                 );
-                
-                list.innerHTML = filtered.length > 0 
+
+                list.innerHTML = filtered.length > 0
                     ? filtered.map(art => `<div class="result-item"><a href="${art.link}">${art.title}</a> <span>(${art.cat})</span></div>`).join('')
                     : `<p>No scrolls found for "${input}"</p>`;
             } else {
