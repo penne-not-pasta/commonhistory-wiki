@@ -1,10 +1,10 @@
 // 1. Your Article Database (Add new articles here!)
 const wikiDatabase = [
     {
-        title: "The Concept of Purgatory.",
-        description: "The concept Catholic-Christian Purgatory in the bible.",
-        link: "the-concept-of-purgatory.html",
-        category: "Religion",
+        title: "The Life of Anne Frank.",
+        description: "The birth, life and tragic death of anne frank.",
+        link: "the-life-of-anne-frank.html",
+        category: "Modern",
         date: "2026-03-27"
     }
 ];
